@@ -55,6 +55,7 @@ class FeedJsonDeserializer : JsonDeserializer<Feed> {
                         entries.add(entry)
                     }
             Timber.d("asd")
+            return Feed("Author", entries, Date(0), "(c) Rights", "Title", "Icon URL")
         }
 //        val feed = Feed()
 
