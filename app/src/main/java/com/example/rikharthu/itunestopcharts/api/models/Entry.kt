@@ -8,7 +8,7 @@ data class Entry(
         val collection: String,
         val priceLabel: String,
         val priceAmount: Double,
-        val priceCurreny: String,
+        val priceCurrency: String,
         val rights: String,
         val title: String,
         val id: String,
