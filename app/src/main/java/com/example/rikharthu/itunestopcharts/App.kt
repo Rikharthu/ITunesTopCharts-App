@@ -2,7 +2,6 @@ package com.example.rikharthu.itunestopcharts
 
 import android.app.Activity
 import android.app.Application
-import com.example.rikharthu.itunestopcharts.api.ITunesApiService
 import com.example.rikharthu.itunestopcharts.di.DaggerAppComponent
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

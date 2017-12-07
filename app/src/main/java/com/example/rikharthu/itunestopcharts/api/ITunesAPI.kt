@@ -2,7 +2,7 @@ package com.example.rikharthu.itunestopcharts.api
 
 import com.example.rikharthu.itunestopcharts.BuildConfig
 import com.example.rikharthu.itunestopcharts.api.deserializers.FeedJsonDeserializer
-import com.example.rikharthu.itunestopcharts.api.models.Feed
+import com.example.rikharthu.itunestopcharts.api.models.FeedResponse
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,7 +24,7 @@ class ITunesAPI {
         val gson = GsonBuilder()
                 .setLenient()
                 .registerTypeAdapter(
-                        Feed::class.java, FeedJsonDeserializer()
+                        FeedResponse::class.java, FeedJsonDeserializer()
                 )
                 .setDateFormat(DateFormat.FULL, DateFormat.FULL)
                 .create()
@@ -36,7 +36,7 @@ class ITunesAPI {
         mITunesApiService = retrofit.create(ITunesApiService::class.java)
     }
 
-    fun getHotTracks(): Call<Feed> {
+    fun getHotTracks(): Call<FeedResponse> {
         return mITunesApiService.getTopTen()
     }
 }

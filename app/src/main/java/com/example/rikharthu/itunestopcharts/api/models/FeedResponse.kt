@@ -2,7 +2,8 @@ package com.example.rikharthu.itunestopcharts.api.models
 
 import java.util.*
 
-data class Feed(
+data class FeedResponse(
+        val id: Long,
         val author: String,
         val entry: List<Entry>,
         val updated: Date,

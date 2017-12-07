@@ -1,20 +1,20 @@
 package com.example.rikharthu.itunestopcharts.api.deserializers
 
+import com.example.rikharthu.itunestopcharts.api.models.FeedResponse
 import com.example.rikharthu.itunestopcharts.api.models.Entry
-import com.example.rikharthu.itunestopcharts.api.models.Feed
 import com.google.gson.*
 import timber.log.Timber
 import java.lang.reflect.Type
 import java.text.SimpleDateFormat
 import java.util.*
 
-class FeedJsonDeserializer : JsonDeserializer<Feed> {
+class FeedJsonDeserializer : JsonDeserializer<FeedResponse> {
 
     val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssXXX")
 
     val gson = Gson()
 
-    override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): Feed? {
+    override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): FeedResponse? {
         val feedJsonObj = json?.asJsonObject?.getAsJsonObject("feed")
         if (feedJsonObj != null) {
             val authorJsonObj: JsonObject? = feedJsonObj.getAsJsonObject("author")
@@ -55,9 +55,9 @@ class FeedJsonDeserializer : JsonDeserializer<Feed> {
                         entries.add(entry)
                     }
             Timber.d("asd")
-            return Feed("Author", entries, Date(0), "(c) Rights", "Title", "Icon URL")
+            return FeedResponse(-1, "Author",entries, Date(0), "(c) Rights", "Title", "Icon URL")
         }
-//        val feed = Feed()
+//        val feed = FeedResponse()
 
         return null
     }
